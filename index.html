@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Node.js 核心源码解读教程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="自顶向下、源码级的 Node.js 内核解读：操作系统 → libuv → V8 → C++ 绑定 → JS 模块" />
+  <link rel="stylesheet" href="vendor/vue.css" />
+  <link rel="stylesheet" href="vendor/prism-tomorrow.min.css" />
+  <style>
+    :root {
+      --base-font-size: 15px;
+    }
+    .markdown-section code {
+      word-break: break-word;
+    }
+    .markdown-section pre {
+      border-radius: 6px;
+    }
+    .cover-main > h1 {
+      background: linear-gradient(90deg, #42b983, #347474);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .app-name-link { font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div id="app">加载中…</div>
+  <script>
+    window.$docsify = {
+      name: 'Node.js 核心源码解读',
+      repo: '',
+      loadSidebar: true,
+      loadNavbar: false,
+      subMaxLevel: 3,
+      auto2top: true,
+      homepage: 'README.md',
+      coverpage: true,
+      notFoundPage: true,
+      relativePath: true,
+      logo: '',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索（支持中文）',
+        noData: '找不到结果',
+        depth: 6
+      },
+      pagination: {
+        previousText: '上一章',
+        nextText: '下一章',
+        crossChapter: true,
+        crossChapterText: true
+      },
+      copyCode: {
+        buttonText: '复制',
+        errorText: '失败',
+        successText: '已复制'
+      },
+      plugins: [
+        function (hook, vm) {
+          hook.doneEach(function () {
+            var h1 = document.querySelector('.markdown-section > h1');
+            if (h1 && h1.textContent) {
+              document.title = h1.textContent.trim() + ' · Node.js 源码解读';
+            }
+          });
+        }
+      ]
+    };
+  </script>
+  <script src="vendor/docsify.min.js"></script>
+  <script src="vendor/search.min.js"></script>
+  <script src="vendor/docsify-pagination.min.js"></script>
+  <script src="vendor/docsify-copy-code.min.js"></script>
+  <script src="vendor/prism-bash.min.js"></script>
+  <script src="vendor/prism-c.min.js"></script>
+  <script src="vendor/prism-cpp.min.js"></script>
+  <script src="vendor/prism-json.min.js"></script>
+  <script src="vendor/prism-yaml.min.js"></script>
+</body>
+</html>

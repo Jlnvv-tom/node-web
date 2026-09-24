@@ -1,0 +1,9 @@
+# Node / 工具临时
+node_modules/
+npm-debug.log
+.DS_Store
+
+# 本地静态服务器日志（如有）
+*.log
+
+# 保留 vendor/（离线依赖，需提交）、_sidebar.md、_coverpage.md、.nojekyll
