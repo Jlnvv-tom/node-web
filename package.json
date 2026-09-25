@@ -1,0 +1,31 @@
+{
+  "name": "nodejs-core-source-reading",
+  "version": "0.1.0",
+  "private": true,
+  "description": "自顶向下、源码级的 Node.js 内核解读教程：操作系统 → libuv → V8 → C++ 绑定 → JS 核心模块。Docsify 文档站，文章在 docs/，示例代码在 src/，离线依赖在 vendor/。",
+  "type": "commonjs",
+  "main": "scripts/serve.js",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "dev": "node scripts/serve.js",
+    "serve": "node scripts/serve.js",
+    "gen:sidebar": "python3 _gen_sidebar.py",
+    "build": "python3 _gen_sidebar.py",
+    "deploy": "echo '在 GitHub 仓库 Settings → Pages → Source 选 GitHub Actions，push main 即自动部署'"
+  },
+  "keywords": [
+    "nodejs",
+    "source-code",
+    "libuv",
+    "v8",
+    "docsify",
+    "tutorial"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "docsify-cli": "^4.4.4"
+  }
+}
