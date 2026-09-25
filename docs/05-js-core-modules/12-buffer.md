@@ -138,3 +138,10 @@ console.log(s.toString());   // "hZllo"（共享内存被改）
 1. 为什么"V8 堆没满但进程 RSS 很大"常常是 Buffer 造成的？你该看哪个指标确认？
 2. `Buffer.subarray` 与 `Buffer.from(buf)` 在内存上的本质区别是什么？什么场景必须用后者？
 3. 为什么处理密码/密钥时不要用 `Buffer.allocUnsafe`？Node 的 `crypto` 输出是否规避了这一点？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/05-js-core-modules/buffer-encoding-demo.js`
+> Buffer 编码/视图/TypedArray 共享内存

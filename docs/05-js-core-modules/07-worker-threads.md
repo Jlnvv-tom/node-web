@@ -183,3 +183,10 @@ console.log('main thread not blocked, doing other work...');
 1. 为什么说 worker 间"无法共享普通 JS 对象"？要共享状态必须用哪两种机制？
 2. `transferList` 转移 ArrayBuffer 后，发送方为什么不能再访问它？这与 SharedArrayBuffer 有何不同？
 3. 在 worker 里写 `setTimeout` 和 `fs.readFile` 能用吗？为什么？它们跑在哪个事件循环上？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/05-js-core-modules/worker-threads-demo.js`
+> Worker 跑 CPU 密集任务不阻塞主线程

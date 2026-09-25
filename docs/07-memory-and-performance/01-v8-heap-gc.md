@@ -175,3 +175,10 @@ setTimeout(() => console.log('done, heapUsed:', process.memoryUsage().heapUsed),
 1. 为什么"进程 RSS 很大但 heapUsed 很小"？哪类数据会导致这种差异？
 2. 新生代为什么用复制算法而不是标记-清除？代价是什么？
 3. 如果你的服务出现"每隔几秒有一次 50ms 延迟尖刺"，你会怀疑什么？如何确认是 GC 导致的？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/07-memory-and-performance/mem-leak-demo.js`
+> GC 与堆外内存观察

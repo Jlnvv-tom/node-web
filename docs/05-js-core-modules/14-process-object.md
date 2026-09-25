@@ -101,3 +101,10 @@ setTimeout(() => console.log('timeout fired'), 100);
 1. 为什么 `process.exit()` 会导致数据丢失，而 `server.close()` 再 `exit` 更可靠？底层差异是什么？
 2. `exit` 事件回调里为什么不能做异步 I/O？如果需要 flush 日志怎么办？
 3. 为什么 Node 官方不推荐在 `uncaughtException` 里"吞掉"错误继续运行？什么才是合理用法？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/05-js-core-modules/process-object-demo.js`
+> process.argv/nextTick/exitCode/异常保护

@@ -203,3 +203,10 @@ r.pipe(w);
 1. 如果用 `fs.readFile` 读 10GB 文件再 `res.send`，vs 用 `fs.createReadStream().pipe(res)`，内存曲线有何不同？
 2. 背压为什么重要？如果没有背压，快生产者 + 慢消费者会导致什么？
 3. `pipe` 内部如何保证"源结束→目标也结束"且"错误能正确传播"？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/05-js-core-modules/stream-pipe-demo.js`
+> pipe 背压 pause/resume 实测

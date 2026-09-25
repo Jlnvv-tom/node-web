@@ -137,3 +137,10 @@ setTimeout(() => console.log('timeout fired @', (performance.now()-start).toFixe
 1. 为什么 libuv 不用 OS 定时器（如 timerfd）而自己维护最小堆？跨平台角度怎么想？
 2. 如果一个 `setTimeout(fn, 100)` 的回调执行了 500ms，下一个 `setTimeout(fn, 100)` 会何时触发？中间会积压吗？
 3. `uv_backend_timeout` 返回 -1（无限阻塞）的条件是什么？此时进程会一直卡住吗？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/02-libuv/timer-clamp.js`
+> 实测 setTimeout 最小超时与嵌套 4ms 钳制

@@ -119,3 +119,10 @@ app.get('/data', (req, res) => {
 1. 为什么"对比两个时间点的 heap snapshot"比"只看一个快照"更能定位泄漏？
 2. 如果你发现 `external` 持续增长而 `heapUsed` 不变，最可能是什么泄漏？该看哪里？
 3. `EventEmitter` 监听器泄漏在 heap snapshot 里会表现出什么特征？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/07-memory-and-performance/mem-leak-demo.js`
+> 模拟泄漏并用 heap 快照定位

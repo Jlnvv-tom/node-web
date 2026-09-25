@@ -105,3 +105,10 @@ cat /proc/$PID/status | grep Threads
 1. 为什么 libuv 线程池的工作线程"不能跑 JS"？技术上能不能让它们跑？为什么 Node 不这么做？
 2. thread-per-connection 在今天的硬件下是否完全不可行？什么场景仍会用到多线程模型？
 3. worker_threads 与 libuv 线程池都用了 pthread，为什么前者能跑 JS 而后者不能？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/01-os-layer/thread-pool.js`
+> pbkdf2 并行卸载到 libuv 线程池，主线程不阻塞

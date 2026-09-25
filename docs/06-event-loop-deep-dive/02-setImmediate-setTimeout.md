@@ -176,3 +176,10 @@ node -e "const fs=require('fs'); fs.readFile(__filename,()=>{setTimeout(()=>cons
 1. 为什么 Node 把 `setTimeout(fn, 0)` 实际当成 `1ms` 而非 `0ms`？这如何影响顶层顺序？
 2. 在 I/O 回调里，如果同时注册 `setImmediate` 和 `setTimeout(fn, 2)`，谁先？为什么？
 3. 如果在一个 `setImmediate` 回调里再调用 `setImmediate`，会进入无限循环吗？与 `process.nextTick` 递归有何不同？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/06-event-loop-deep-dive/order-cheatsheet.js`
+> setImmediate vs setTimeout 时序记忆卡

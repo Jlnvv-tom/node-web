@@ -222,3 +222,10 @@ npx electron --inspect=9229 main.js
 1. 为什么 Electron 要把 libuv 循环并入 Chromium MessagePump，而不是"两个循环各跑各的"？会出什么问题？
 2. `nodeIntegration: true` 在加载本地 `index.html`（可信）时是否安全？那为什么官方仍建议关闭？
 3. `contextIsolation: true` 下，preload 脚本和渲染页的 JS 为什么不能直接共享全局变量？它们不是在同一个窗口里吗？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/08-electron-integration/main-preload-bridge.js`
+> 主进程↔渲染进程 contextBridge 安全桥接范式

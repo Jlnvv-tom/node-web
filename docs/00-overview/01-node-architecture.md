@@ -122,3 +122,10 @@ libuv 在 poll/check 阶段把结果通过 MakeCallback 抛回 JS
 1. 为什么说"V8 不知道文件是什么"？如果只用 V8 而不接 libuv，能跑出 `fs.readFile` 吗？
 2. 网络 I/O 和文件 I/O 在 Node 里走了不同的底层路径，为什么要这样设计？
 3. 当你在终端输入 `node app.js`，最先被执行的代码位于哪一层？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/00-overview/inspect-layers.js`
+> 运行可打印 V8/libuv/Node 版本与分层探针

@@ -151,3 +151,10 @@ UV_THREADPOOL_SIZE=8 node pool.js
 1. 为什么说"工作线程里不能调用 V8 API"？若你强行在工作线程里触发了一个 JS 回调会怎样？
 2. `dns.lookup` 和 `dns.resolve` 走的底层路径不同，这对线程池负载有什么实际影响？
 3. 如果把 `UV_THREADPOOL_SIZE` 设成 1024，是越多越好吗？有什么代价？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/02-libuv/uv-threadpool-sizes.js`
+> 观测 libuv 默认线程池大小与 UV_THREADPOOL_SIZE 扩容

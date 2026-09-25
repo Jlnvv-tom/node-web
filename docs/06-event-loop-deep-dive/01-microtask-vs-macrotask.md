@@ -144,3 +144,10 @@ console.log('0: sync');
 1. `process.nextTick` 和 `Promise.then` 都不在 libuv 六阶段里，那它们由谁负责调度？
 2. 为什么 `async/await` 的续体表现得像 `Promise.then`（同属 microtask）？
 3. 如果在 `setTimeout` 回调里递归调用 `setTimeout`，会饿死事件循环吗？和 nextTick 递归有何不同？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/06-event-loop-deep-dive/order-cheatsheet.js`
+> 一次循环内各任务优先级实测

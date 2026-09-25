@@ -213,3 +213,10 @@ e.emit('error', new Error('boom'));  // 无 error 监听器 → 抛异常崩溃
 1. 为什么 `emit` 在多监听器场景要先 `slice()` 再遍历？如果直接遍历原数组会怎样？
 2. 为什么 Node 规定"error 事件必须有监听器"？设计意图是什么？
 3. `EventEmitter` 是同步的，那为什么我们说 Node 是"异步事件驱动"？异步发生在哪？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/05-js-core-modules/event-emitter-impl.js`
+> 手撸最小 EventEmitter 理解 events 数据结构

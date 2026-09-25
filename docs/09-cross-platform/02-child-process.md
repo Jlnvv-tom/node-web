@@ -142,3 +142,10 @@ child.send({ hi: 1 });
 1. `spawn` 与 `exec` 在输出处理上有什么根本区别？什么场景该用哪个？两者对 shell 的使用有何不同？
 2. `fork` 的 IPC channel 底层是 libuv 的什么机制在驱动消息接收？（提示：02-06/02-07）
 3. 为什么 `exec('ls ' + userInput)` 是危险的？如何改成安全写法？这体现了哪类安全漏洞？
+
+---
+
+## 附：可运行示例
+
+> 配套验证脚本见 `src/09-cross-platform/child-process-demo.cjs`
+> fork 子进程经 IPC 收发消息
