@@ -132,6 +132,9 @@ Node 核心模块**不用** N-API（它们直接操作 V8，因为随 Node 一�
 
 ## 7. 可运行验证
 
+> 完整可编译的最小 N-API 插件（addon.c + binding.gyp）已抽取到仓库
+> `src/04-cpp-bindings/napi-addon/`，按其头部注释执行 `node-gyp configure build` 即可生成 addon.node。
+
 ```bash
 # 用 node-addon-api（C++ 包装，更易用）快速建插件
 npm init -y

@@ -94,6 +94,8 @@ crypto 输出多为 `Buffer`（`ArrayBuffer` 后备，见 07-01）。注意大�
 
 ```js
 const crypto = require('crypto');
+
+> 可独立运行的示例见 `src/04-cpp-bindings/` 之外的纯 JS 演示：本篇 crypto 调用可直接复制运行；完整可跑脚本集合见 `src/README.md`。
 const { performance } = require('perf_hooks');
 const t = performance.now();
 crypto.pbkdf2('pw', 'salt', 100000, 64, 'sha512', () => {

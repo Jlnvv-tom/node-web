@@ -4,7 +4,7 @@
 import os
 import re
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs")
 
 # 目录 -> 侧边栏分组标题
 DIR_TITLES = {

@@ -1,3 +1,6 @@
+> 多核铺满的完整可跑示例见 `src/05-js-core-modules/cluster-multi-core.js`：
+> `node src/05-js-core-modules/cluster-multi-core.js`，用 `ps`/`curl localhost:8124` 观察 master+worker 与崩溃重启。
+
 # 05-10 process 与 cluster：进程模型与多核利用
 
 > 本章目标：理解 Node 的进程级 API（`process`）与多进程扩展（`cluster`）——前者是 JS 与运行时/OS 的接口，后者是在单进程事件循环之外利用多核的标准方案。

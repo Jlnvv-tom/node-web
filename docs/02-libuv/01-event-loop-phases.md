@@ -203,6 +203,9 @@ timeout in I/O cb (next tick timers)
 
 ## 9. 本章总结
 
+> 想亲手观察事件循环各阶段顺序？运行 `src/02-libuv/event-loop-order.js`：
+> `node src/02-libuv/event-loop-order.js`，可看到 nextTick > Promise > setImmediate > setTimeout(0) 的真实输出。
+
 - 事件循环 = `uv_run()` 的六阶段循环：timers → pending → (idle/prepare) → poll → check → close。
 - poll 阶段通过 epoll/kqueue 阻塞等待 I/O，是整个循环的核心。
 - 六阶段是宏任务框架；`nextTick`/`Promise` 微任务穿插在阶段之间清空。

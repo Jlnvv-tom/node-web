@@ -109,6 +109,8 @@ strace -f -e trace=network,desc,read,write node -e "require('net').createConnect
 ```
 你会看到 `socket()` → `connect()` → `epoll_create1` → `epoll_ctl` → `epoll_wait` 的序列，印证本文所述的 fd + 多路复用模型。
 
+> 没有 strace（macOS/Windows）？可用 `src/01-os-layer/nonblocking-vs-blocking.js` 对比同步阻塞读与异步非阻塞读的主线程耗时。
+
 ---
 
 ## 7. 本章总结

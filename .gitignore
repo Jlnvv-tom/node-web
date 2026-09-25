@@ -7,3 +7,7 @@ npm-debug.log
 *.log
 
 # 保留 vendor/（离线依赖，需提交）、_sidebar.md、_coverpage.md、.nojekyll
+
+# node-gyp 编译产物（N-API 示例）
+src/**/build/
+src/**/node_modules/
