@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""扫描 node-web/ 下的 .md，生成 Docsify 的 _sidebar.md（按目录分组，用 H1 作链接名）。"""
+"""扫描 docs/ 下的 .md，生成 Docsify 的 _sidebar.md（按目录分组，用 H1 作链接名）。
+同时在每个子目录写一份相同的 _sidebar.md，确保切换目录时侧边栏不丢失。"""
 import os
 import re
 
@@ -29,7 +30,6 @@ def get_h1(path):
         m = H1_RE.search(first)
         if m:
             t = m.group(1)
-            # 去掉可能的末尾 markdown 链接残留
             return t.strip()
     except Exception:
         pass
@@ -39,10 +39,11 @@ def collect():
     groups = {}
     top_files = []
     for dirpath, dirnames, filenames in os.walk(ROOT):
-        # 跳过隐藏目录与生成脚本
         dirnames[:] = [d for d in dirnames if not d.startswith(".")]
         for fn in filenames:
             if not fn.endswith(".md"):
+                continue
+            if fn == "_sidebar.md":
                 continue
             full = os.path.join(dirpath, fn)
             rel = os.path.relpath(full, ROOT)
@@ -57,9 +58,8 @@ def collect():
             groups.setdefault(grp, []).append((fn, rel))
     return groups, top_files
 
-def main():
-    groups, top_files = collect()
-    lines = ["* [首页](/)", ""]
+def build_sidebar(groups, top_files):
+    lines = []
     # 顶层文件
     for fn, rel in top_files:
         title = "计划文档 PLAN" if fn == "PLAN.md" else "首页"
@@ -68,15 +68,37 @@ def main():
     # 目录分组
     for grp in sorted(groups.keys()):
         lines.append(f"* **{DIR_TITLES[grp]}**")
-        items = sorted(groups[grp], key=lambda x: x[0])  # 按文件名排序
+        items = sorted(groups[grp], key=lambda x: x[0])
         for fn, rel in items:
             h1 = get_h1(os.path.join(ROOT, rel))
             lines.append(f"  * [{h1}]({rel})")
         lines.append("")
-    out = "\n".join(lines).rstrip() + "\n"
+    return "\n".join(lines).rstrip() + "\n"
+
+def main():
+    groups, top_files = collect()
+    content = build_sidebar(groups, top_files)
+
+    # 写根 _sidebar.md
     with open(os.path.join(ROOT, "_sidebar.md"), "w", encoding="utf-8") as f:
-        f.write(out)
-    print("written _sidebar.md with", sum(len(v) for v in groups.values()) + len(top_files), "entries")
+        f.write(content)
+    print(f"written docs/_sidebar.md ({len(content)} bytes)")
+
+    # 在每个子目录写一份相同的 _sidebar.md
+    # 链接路径需要调整为相对于子目录
+    for grp in DIR_TITLES:
+        subdir = os.path.join(ROOT, grp)
+        if not os.path.isdir(subdir):
+            continue
+        # 把链接路径加上 ../ 前缀，使其指向根 docs/ 下的文件
+        sub_content = content.replace("](", "](../")
+        sub_path = os.path.join(subdir, "_sidebar.md")
+        with open(sub_path, "w", encoding="utf-8") as f:
+            f.write(sub_content)
+        print(f"written {grp}/_sidebar.md")
+
+    total = sum(len(v) for v in groups.values()) + len(top_files)
+    print(f"total entries: {total}")
 
 if __name__ == "__main__":
     main()

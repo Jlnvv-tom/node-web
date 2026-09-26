@@ -38,9 +38,17 @@ const server = http.createServer((req, res) => {
     return res.end('Forbidden');
   }
 
+  const ext = path.extname(safePath).toLowerCase();
+
   fs.stat(safePath, (err, stat) => {
     if (err || !stat.isFile()) {
-      // SPA 回退：未知路径返回 index.html，交给 Docsify 客户端路由
+      // 对 .md 文件返回 404，而非 SPA fallback
+      // （Docsify 收到 HTML 当 markdown 解析会卡在"加载中"）
+      if (ext === '.md') {
+        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+        return res.end('404 Not Found: ' + urlPath);
+      }
+      // SPA 回退：未知非 .md 路径返回 index.html，交给 Docsify 客户端路由
       const fallback = path.join(ROOT, 'index.html');
       fs.readFile(fallback, (e2, data) => {
         if (e2) {
@@ -52,7 +60,6 @@ const server = http.createServer((req, res) => {
       });
       return;
     }
-    const ext = path.extname(safePath).toLowerCase();
     res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
     fs.createReadStream(safePath).pipe(res);
   });

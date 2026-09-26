@@ -1,5 +1,3 @@
-* [首页](/)
-
 * [首页](README.md)
 * [计划文档 PLAN](PLAN.md)
 
