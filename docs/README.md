@@ -1,7 +1,7 @@
 # Node.js 核心源码解读教程
 
-> 自顶向下、源码级的 Node.js 内核解读。回答一个问题：
-> **"敲下 `node app.js` 回车后，到你的代码执行，再到 I/O / 模块 / 内存 / 并发被管理——中间到底发生了什么？"**
+> 自顶向下、源码级的 Node.js 内核解读。回答一个问题:
+> **"敲下 `node app.js` 回车后,到你的代码执行,再到 I/O / 模块 / 内存 / 并发被管理--中间到底发生了什么?"**
 
 ## 阅读路径
 
@@ -28,19 +28,29 @@
 
 ## 编写状态
 
-- ✅ 00 总览篇（3/3）
-- ✅ 02-01 事件循环六阶段（核心篇）
-- 🚧 其余篇章逐步撰写中，详见 [PLAN.md](./PLAN.md)
+- ✅ 全部 63 篇完成（12 个章节/附录，详见 [PLAN.md](./PLAN.md)）
+- ✅ 00 总览（3/3）
+- ✅ 01 操作系统层（4/4）
+- ✅ 02 libuv（7/7）
+- ✅ 03 V8 引擎（6/6）
+- ✅ 04 C++ 绑定（6/6）
+- ✅ 05 JS 核心模块（14/14）
+- ✅ 06 事件循环专题（4/4）
+- ✅ 07 内存与性能（4/4）
+- ✅ 08 Electron 集成（5/5）
+- ✅ 09 跨平台（3/3）
+- ✅ 10 实战篇（4/4）
+- ✅ 附录（3/3：术语表 / 参考 / 源码索引）
 
 ## 约定
 
-- 每篇结构：导读 → 架构图 → 源码走读 → 带注释代码 → 总结 → 思考题
-- 源码引用标注文件路径与行号，如 `src/node.cc`、`deps/uv/src/unix/core.c`
-- 术语保留英文（Isolate / Realm / Wrap / Binding / Tick…）
+- 每篇结构:导读 → 架构图 → 源码走读 → 带注释代码 → 总结 → 思考题
+- 源码引用标注文件路径与行号,如 `src/node.cc`、`deps/uv/src/unix/core.c`
+- 术语保留英文(Isolate / Realm / Wrap / Binding / Tick...)
 
 ## 参考
 
-- Node.js 源码：https://github.com/nodejs/node
-- libuv 文档：https://docs.libuv.org
-- V8 文档：https://v8.dev/docs
-- Electron 架构：https://www.electronjs.org/docs/latest/
+- Node.js 源码:https://github.com/nodejs/node
+- libuv 文档:https://docs.libuv.org
+- V8 文档:https://v8.dev/docs
+- Electron 架构:https://www.electronjs.org/docs/latest/
