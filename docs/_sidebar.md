@@ -26,6 +26,8 @@
   * [03-02 V8 JIT 编译管线：Ignition → Sparkplug → Maglev → TurboFan](03-v8-engine/02-jit-pipeline.md)
   * [03-03 V8 垃圾回收（Orinoco）](03-v8-engine/03-garbage-collection.md)
   * [03-04 V8 嵌入 API 与 Node 如何使用它](03-v8-engine/04-isolate-embedding.md)
+  * [03-04 V8 Isolate / Heap / Context](03-v8-engine/04-v8-isolate-heap.md)
+  * [03-05 V8 Embedding API：Node.js 如何嵌入 V8](03-v8-engine/05-v8-embedding-api.md)
 
 * **04 · C++ 绑定层**
   * [04-01 C++ 绑定层核心抽象：Environment / Realm / BaseObject](04-cpp-bindings/01-node-architecture-cpp.md)
@@ -55,14 +57,22 @@
   * [06-01 微任务 vs 宏任务：nextTick 与 Promise](06-event-loop-deep-dive/01-microtask-vs-macrotask.md)
   * [06-02 setImmediate vs setTimeout 时序谜题](06-event-loop-deep-dive/02-setImmediate-setTimeout.md)
   * [06-03 逐阶段源码走读（Phase Source Walkthrough）](06-event-loop-deep-dive/03-phases-source-walkthrough.md)
+  * [06-04 阻塞事件循环：CPU 密集型任务的危害与解决方案](06-event-loop-deep-dive/04-blocking-event-loop.md)
 
 * **07 · 内存与性能**
   * [07-01 V8 堆内存与垃圾回收（GC）](07-memory-and-performance/01-v8-heap-gc.md)
   * [07-02 内存泄漏排查实战](07-memory-and-performance/02-memory-leak-detection.md)
+  * [07-03 Buffer 与 TypedArray：Node.js 的二进制数据模型](07-memory-and-performance/03-buffers-and-typed-arrays.md)
+  * [07-04 Performance Hooks 与诊断工具](07-memory-and-performance/04-performance-hooks.md)
 
 * **08 · Electron 集成**
   * [08-01 Electron 架构：Node.js 如何嵌入 Chromium](08-electron-integration/01-electron-architecture.md)
+  * [08-02 V8 共享：Chromium 与 Node.js 的 V8 实例合并](08-electron-integration/02-v8-sharing.md)
+  * [08-03 事件循环合并：libuv 与 Chromium MessagePump](08-electron-integration/03-event-loop-merge.md)
+  * [08-04 IPC 通信：主进程与渲染进程的桥接](08-electron-integration/04-ipc-communication.md)
+  * [08-05 Preload 脚本与 contextBridge 安全模型](08-electron-integration/05-preload-security.md)
 
 * **09 · 跨平台实现**
   * [09-01 跨平台抽象层](09-cross-platform/01-platform-abstraction.md)
   * [09-02 child_process：进程创建与 IPC](09-cross-platform/02-child-process.md)
+  * [09-03 原生插件开发与 ABI 兼容](09-cross-platform/03-native-addons.md)
